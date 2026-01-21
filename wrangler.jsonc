@@ -1,0 +1,32 @@
+{
+  "name": "nocodb-on-containers",
+  "main": "src/index.js",
+  "compatibility_date": "2024-09-23",
+  "containers": [
+    {
+      "class_name": "NocoDBContainer",
+      "image": "./packages/nocodb/Dockerfile",
+      "instance_type": "standard-1"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "NOCODB_CONTAINER",
+        "class_name": "NocoDBContainer"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["NocoDBContainer"]
+    }
+  ],
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "c80da6008af14c07b9e2efe57be6a493"
+    }
+  ]
+}
